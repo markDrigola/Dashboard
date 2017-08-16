@@ -1,0 +1,171 @@
+.btn-list {
+  text-align: right;
+  &__item {
+    display: inline-block;
+    margin: 0 6px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.all-task-list {
+  //display: none;
+  .panel-body {
+    padding: 0;
+  }
+}
+
+.all-task-list-item__info {
+  padding: 15px;
+  display: none;
+}
+
+.option-name {
+  margin: auto 0;
+}
+
+.list-coefficient {
+  &__item {
+    max-width: 100%;
+  }
+}
+
+.media-panel-all {
+  .panel-body {
+    padding: 15px;
+  }
+}
+
+.filter-check-flex {
+  display: flex;
+
+  &__label {
+    margin: auto 20px auto 0px;
+    cursor: pointer;
+  }
+  &__input {
+    width: 20px;
+    height: 20px;
+    margin: auto 20px auto 0px;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+    left: 5px;
+  }
+}
+
+.filter-check-flex__input:checked + .filter-check-flex__label {
+  background: #1b3145;
+}
+
+.list-filters-day {
+  &__item {
+    display: inline-block;
+  }
+}
+
+.filter-check-flex__label {
+  transition: all .3s;
+}
+
+.filter-check-flex__label.actives {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+@media (max-width: 1199px) {
+  .list-notes__span {
+    font-size: 2rem;
+  }
+  .list-notes__input {
+    max-width: 100px;
+    margin: auto 0 auto auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .notes-title-min {
+    font-size: 1.4rem;
+    margin-top: 8px;
+  }
+
+  .list-notes__item {
+    height: 48px;
+  }
+  .list-notes__text {
+    width: 57px;
+    font-size: 1.3rem;
+  }
+  .list-notes__span {
+    font-size: 2rem;
+  }
+  .list-coefficient__item .list-notes__input {
+    height: 32px;
+  }
+  .list-notes__input {
+    max-width: 100px;
+    height: 24px;
+    margin: auto 10px auto;
+  }
+  .list-coefficient {
+    &__item {
+      .list-notes {
+        &__input {
+          height: 25px;
+          margin-top: -1;
+        }
+      }
+    }
+    &__info {
+      padding-top: 3px;
+    }
+  }
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  
+  .fl-media-r {
+    float:  right;
+  }
+  .list-coefficient__item .list-notes__input {
+    margin: auto;
+  }
+  .text-notes-info {
+    padding-right: 0;
+    font-size: 1.4rem;
+  }
+
+  .text-btn {
+    top: -35px;
+    right: 0;
+  }
+  .text-btn_save {
+    right: 35px;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+
+  .media-panel-all {
+    border: none;
+    box-shadow: none;
+    margin-bottom: 0;
+
+    .panel-body {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+  .close-task {
+    .panel-body {
+      padding: 0;
+    }
+  }
+  .filter-check-flex__label {
+    margin: auto 0px auto 0;
+  }
+}

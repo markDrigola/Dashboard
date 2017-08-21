@@ -7,10 +7,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 
-var passport = require('passport');
-var flash    = require('connect-flash');
-var session      = require('express-session');
-
 var index = require('./routes/index');
 // var auth = require('./routes/auth');
 var tasks = require('./routes/tasks');

@@ -23,16 +23,13 @@
     "traceur": "^0.0.111",
     "angular-ui-router": "^0.4.2",
     "angular-sanitize": "^1.6.4",
-    "angular-loading-bar": "^0.9.0",
-    "moment-timezone": "^0.5.13"
+    "moment-timezone": "^0.5.13",
+    "ui-bootstrap": "^2.5.0",
+    "angular-google-maps": "^2.4.1"
   },
   "devDependencies": {
-    "slide-and-swipe-menu": "*",
     "font-awesome": "fontawesome#^4.7.0",
-    "angular-swipe": "^0.2.1",
-    "angular-touch": "^1.6.4",
     "ngmap": "^1.18.4",
-    "angular-strap": "^2.3.12",
-    "jquery.scrollbar": "^0.2.11"
+    "angular-strap": "^2.3.12"
   }
 }

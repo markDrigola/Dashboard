@@ -12,11 +12,10 @@ var flash    = require('connect-flash');
 var session      = require('express-session');
 
 var index = require('./routes/index');
-var auth = require('./routes/auth');
-var notes = require('./routes/notes');
-var settings = require('./routes/settings');
+// var auth = require('./routes/auth');
+var tasks = require('./routes/tasks');
+// var settings = require('./routes/settings');
 
-require('./config/passport')(passport); // pass passport for configuration
 
 var app = express();
 app.use(compression());
@@ -38,39 +37,41 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 
-app.use( function(req, res, next) {
-    if (req.originalUrl === '/login') {
-        next();
-        return;
-    }
-
-    req.isAuthenticated()
-        ? next()
-        : res.redirect('/login');
-    // if(!req.isAuthenticated()) {
-    //     //fixme - ajax request
-    //     res.statusCode(401).redirect('/login');
-    // } else {
-    //     next();
-    // }
-});
+// app.use( function(req, res, next) {
+//     if (req.originalUrl === '/login') {
+//         next();
+//         return;
+//     }
+//
+//     req.isAuthenticated()
+//         ? next()
+//         : res.redirect('/login');
+//     // if(!req.isAuthenticated()) {
+//     //     //fixme - ajax request
+//     //     res.statusCode(401).redirect('/login');
+//     // } else {
+//     //     next();
+//     // }
+// });
 
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch',
-    saveUninitialized: true,
-    resave: true })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash());
+//
+// app.use(session({ secret: 'ilovescotchscotchyscotchscotch',
+//     saveUninitialized: true,
+//     resave: true })); // session secret
+// app.use(passport.initialize());
+// app.use(passport.session()); // persistent login sessions
+// app.use(flash());
 
 // require('./routes/auth')(app, passport);
 
-app.use('/', auth);
-app.use('/login', auth);
-app.use('/app', index);
-app.use('/notes', notes);
-app.use('/settings', settings);
+app.use('/', index);
+// app.use('/login', index);
+// app.use('/app', index);
+
+app.use('/task', tasks);
+
+// app.use('/settings', settings);
 
 
 // catch 404 and forward to error handler

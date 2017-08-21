@@ -1,8 +1,15 @@
-<header class="helper-header">
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 burgers">
-        <i class="fa fa-bars burgers__item" aria-hidden="true" ng-click="ctrl.menuToggle($event)"></i>
+<header class="dashboard-header">
+    <div class="col-lg-2 all-pad-none">
+        <p class="dashboard-logo" ui-sref="/">JobUp</p>
     </div>
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col-lg-offset-8 col-md-offset-8 col-sm-offset-8 col-xs-offset-4">
-        <a href="/logout" class="fa fa-sign-out logout-link pull-right"></a>
+    <div class="col-lg-8">
+        <ul class="menu-list">
+            <li class="menu-list__item active" ui-sref="task">DASHBOARD</li>
+            <li class="menu-list__item">HISTORY</li>
+        </ul>
     </div>
+    <div class="col-lg-2">
+        <p class="dashboard-profile" ui-sref="profile">PROFILE</p>
+    </div>
+    <div class="clearfix"></div>
 </header>

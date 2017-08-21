@@ -8,10 +8,10 @@ class MongooseConnector {
       mongoConnection: {
         host: '127.0.0.1',
         port: '27017',
-        dbName: 'helper',
-        name: "mynewuser",
+        dbName: 'test',
+        name: "dashboard",
         // name: "admin",
-          password: "myuser123"
+        //   password: "myuser123"
           // password: "fFBuUuBKCeBnxbFe"
       }
     };
@@ -28,8 +28,6 @@ class MongooseConnector {
       console.log('connected to db')
       // we're connected!
     });
-
-
   }
 
   get mongoose () {

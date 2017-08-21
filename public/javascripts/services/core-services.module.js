@@ -1,16 +1,14 @@
 'use strict';
-import {Navs} from './navs/navs';
 import {Task} from './task/task';
 import {Profile} from './profile/profile';
-import {Settings} from './settings/settings';
+import {Location} from './locationService/location';
 
 const myCoreServices = angular.module('won.core.services', []);
 
 myCoreServices
 	.service('taskService', Task)
-	.service('settingsService', Settings)
+	.service('locationService', Location)
 	.service('profileService', Profile)
-	.service('navsService', Navs);
 
 
 export {myCoreServices};

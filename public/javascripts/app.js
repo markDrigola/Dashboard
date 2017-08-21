@@ -5,11 +5,8 @@ import { appRoutes } from './index.route';
 
 angular.module('nameApp', [
     'ui.router',
-    'ngTouch',
     'ngMap',
     'mgcrea.ngStrap',
-    'jQueryScrollbar',
-    'cfp.loadingBar',
     myCoreComponents.name,
     myCoreServices.name
     ])

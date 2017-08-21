@@ -14,17 +14,11 @@ function profile() {
 const symbol = Symbol();
 
 class profileController {
-    constructor ($state,$rootScope,profileService,cfpLoadingBar) {
-        this.cfpLoadingBar = cfpLoadingBar;
+    constructor ($state,$rootScope,profileService) {
 
-        this.cfpLoadingBar.start();
-        profileService.getUser().then((data)=> {
-            this.user = data;
-            this.cfpLoadingBar.complete();
-        })
     }
 }
 
-profileController.$inject = ['$state','$rootScope','profileService','cfpLoadingBar'];
+profileController.$inject = ['$state','$rootScope','profileService'];
 
 export {profile};

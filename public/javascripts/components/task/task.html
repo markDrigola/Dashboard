@@ -1,0 +1,116 @@
+<div map-lazy-load="https://maps.google.com/maps/api/js" >
+    <!--<ng-map center="41,-87" zoom="15"></ng-map>-->
+    <ng-map
+            center="current position"
+            zoom="15"
+            on-center-changed="ctrl.centerChanged()"
+            on-click="ctrl.markerClick(event)"
+            disable-default-u-i="true"
+    >
+    <marker position="current position"
+            title="Hello World!"
+            on-dragend="ctrl.markerDraggable(event)"
+            optimized="true"
+            draggable="true"
+            icon="{
+            url:'images/map-icon.svg',
+            scaledSize:[50,50],
+            origin: [0,0],
+            anchor: [50,50]
+          }"
+        ></marker>
+    </ng-map>
+</div>
+<div class="task-inner">
+    <div class="task-wrapper-position">
+        <div class="add-task">
+            <p class="add-task__text" ng-click="ctrl.openTaskMenu()">
+                + NEW TASK
+            </p>
+        </div>
+        <ul class="task-ls">
+            <li class="task-ls-it" ng-repeat="task in ctrl.allTask">
+                <div class="task-ls-it__date">{{ctrl.moment(task.date).subtract(6, 'days').calendar()}}</div>
+                <div class="task-ls-it__description">{{task.taskType}}</div>
+                <div class="ls-it-btn-group">
+                    <button class="ls-it-btn-group__edit btn-blue-style" ng-click="ctrl.editingTask($index)" ng-disabled="ctrl.editingIndicators">Edit</button>
+                    <button  class="ls-it-btn-group__del" ng-click="ctrl.deleteTask($index)">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="task-option" ng-class="ctrl.activeMenu ? 'active' : ''">
+    <div class="task-preview">
+        <p class="task-preview__title">
+            <span ng-show="!ctrl.editingIndicators">NEW TASK</span>
+            <span ng-show="ctrl.editingIndicators">EDIT TASK</span>
+        </p>
+        <p class="task-preview__description">
+            I need a {{ctrl.newTaskObj.serviceType}} to {{ctrl.newTaskObj.taskType}}
+            <span ng-if="ctrl.newTaskObj.textUser !== ''">, </span> {{ctrl.newTaskObj.textUser}}
+        </p>
+        <p class="task-preview__location location-map-js">{{ctrl.position}}</p>
+        <button class="add-new-task-btn btn-blue-style"
+                ng-click="ctrl.addNewTask()"
+                ng-show="!ctrl.editingIndicators"
+        >CREATE TASK</button>
+        <button class="add-new-task-btn btn-blue-style"
+                ng-click="ctrl.saveEdit()"
+                ng-show="ctrl.editingIndicators"
+        >REFACTORING TASK</button>
+    </div>
+    <ul class="list-option">
+        <li class="list-option-item">
+            <p class="list-option-item__title">LOCATION</p>
+            <p class="list-option-item__location">
+                {{ctrl.position}}
+            </p>
+        </li>
+        <li class="list-option-item">
+            <div class="wrap-padding">
+                <p class="list-option-item__title">SERVICE TYPE</p>
+                <ul class="services-list">
+                    <li class="services-list-item"
+                        ng-repeat="option in ctrl.serviceOptions"
+                        ng-click="[ctrl.serviceOptionSelection($index + 1),ctrl.serviceTypeSelect(option.textService)]"
+                        ng-class="ctrl.setOptionEq === $index + 1 ? 'active':''"
+                    >
+                        <div class="border-img d-table">
+                            <div class="d-table__cell d-table_vm">
+                                <img src="images/{{option.imgName}}" alt="Electician" class="services-list-item__icon">
+                            </div>
+                        </div>
+                        <p class="services-list-item__name">{{option.textService}}</p>
+                    </li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+        </li>
+        <li class="list-option-item">
+            <div class="wrap-padding">
+                <div class="tabsOptionWrap"
+                     ng-show="ctrl.isSet($index + 1)"
+                     ng-repeat="taskOption in ctrl.taskOptions"
+                >
+                    <p class="list-option-item__title">{{taskOption.title}} TASKS</p>
+                    <ul class="plumber-list">
+                        <li class="plumber-list__item"
+                            ng-repeat="taskText in taskOption.text"
+                            ng-click="[ctrl.taskOptionActive($index + 1),ctrl.taskTypeSelect(taskText)]"
+                            ng-class="ctrl.setOptionActive === $index + 1 ? 'active':''"
+                        >{{taskText}}</li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li class="list-option-item">
+            <div class="wrap-padding">
+                <p class="list-option-item__title">TASK DESCRIPTION</p>
+                <div class="list-option-item__location">
+                    <input type="text" placeholder="Text note..." class="list-option-item__input" ng-model="ctrl.newTaskObj.textUser">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
